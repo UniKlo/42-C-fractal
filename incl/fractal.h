@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:41:08 by khou              #+#    #+#             */
-/*   Updated: 2019/02/21 23:47:12 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/23 01:42:16 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTAL_H
+# define FRACTAL_H
 
 
 /*
@@ -83,13 +83,23 @@ typedef struct	s_frame
 	char		*data_img;
 }				t_frame;
 
+typedef struct	s_fflag
+{
+	bool	j;
+	bool	m;
+}				t_fflag;
 
 /*
 ** -----------------------------------------------------------------------------
 ** -------------------------------- Sources ------------------------------------
 ** -----------------------------------------------------------------------------
 */
+
+int     render(t_frame *frm, t_fflag *flag);
 int     deal_key(int key, t_frame *frm);
 int     red_close(t_frame *frm);
+void	mandelbrot(t_frame *frm);
+void    fill_img(t_frame *frm, int x, int y, int a);
+
 
 #endif

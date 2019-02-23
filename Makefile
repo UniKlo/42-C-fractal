@@ -6,13 +6,13 @@
 #    By: khou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/22 18:08:35 by khou              #+#    #+#              #
-#    Updated: 2019/02/22 00:15:07 by khou             ###   ########.fr        #
+#    Updated: 2019/02/23 01:41:41 by khou             ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 C = clang
 
-NAME = fractol
+NAME = fractal
 
 FLAGS = -Wall -Wextra -Werror # -fsanitize=address #-g
 
@@ -22,7 +22,7 @@ DIR_S = srcs/
 
 HEADER = fdf.h
 
-SOURCES = fractol.c	hook_func.c
+SOURCES = fractal.c	hook_func.c	render.c	mandelbrot.c	mlx_img.c
 
 
 SRCS = $(addprefix $(DIR_S)/, $(SOURCES))

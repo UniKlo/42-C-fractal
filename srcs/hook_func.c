@@ -6,11 +6,11 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 23:45:11 by khou              #+#    #+#             */
-/*   Updated: 2019/02/21 23:49:19 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/23 01:20:09 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractal.h"
 
 int		deal_key(int key, t_frame *frm)
 {
