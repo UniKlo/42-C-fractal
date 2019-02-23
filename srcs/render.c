@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 16:37:12 by khou              #+#    #+#             */
-/*   Updated: 2019/02/23 02:18:26 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/23 02:55:38 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,11 @@ void	clear_img(t_frame *frm)
 int		render(t_frame *frm, t_fflag *flag)
 {
 	clear_img(frm);
-	(void) flag;
-/*
-	if (flag->j)
+	if (flag->j == 1)
 		;
-	else if (flag->m)
+	else if (flag->m == 1)
 		mandelbrot(frm);
-*/
+//	printf("Render: j: %d, m: %d\n", flag->j, flag->m);//keep changes value
 //	scale(frm);
 //	rotate(frm);
 //	project(frm);

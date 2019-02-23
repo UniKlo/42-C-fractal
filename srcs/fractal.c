@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 00:47:16 by khou              #+#    #+#             */
-/*   Updated: 2019/02/23 00:47:19 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/23 02:49:20 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,17 @@ m - mandelbrot\n        X - XXX\n        X - XXXX\n");
 
 void	error_arg(t_fflag *flag,int argc, char **argv)
 {
-	
+	flag->j = 0;
+	flag->m = 0;
 	if (argc < 2)
 		error_usage();
 	int	i = 1;
 	while (i < argc)
 	{
-//		ft_printf("%c\n", *argv[i]);
-		if (*argv[i] == 'j' || *argv[i] == 'm')
-		{
-			if (!ft_strcmp("mandelbrot", argv[i]) || !ft_strcmp("m", argv[i]))
-				flag->j = 1;
-			else if (!ft_strcmp("julia", argv[i]) || !ft_strcmp("j", argv[i]))
-				flag->m = 1;
-			else
-				error_usage();
-		}
+		if (!ft_strcmp("mandelbrot", argv[i]) || !ft_strcmp("m", argv[i]))
+			flag->m = 1;
+		else if (!ft_strcmp("julia", argv[i]) || !ft_strcmp("j", argv[i]))
+			flag->j = 1;
 		else
 			error_usage();
 		i++;
@@ -51,6 +46,7 @@ int		main(int argc, char **argv)
 	t_fflag	flag;
 //-- error management for argv ----
 	error_arg(&flag, argc, argv);
+	printf("Mian: j: %d, m: %d\n", flag.j, flag.m);
 	frm.mlx = mlx_init();
 	frm.win = mlx_new_window(frm.mlx, WIN_W, WIN_H, "The VIEW");
 	frm.img = mlx_new_image(frm.mlx, WIN_W, WIN_H);

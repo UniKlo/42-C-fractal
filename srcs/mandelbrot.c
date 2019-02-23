@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 04:37:39 by khou              #+#    #+#             */
-/*   Updated: 2019/02/23 01:51:50 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/23 03:03:25 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	fractal(t_frame *frm, float left, float top, float xside, float yside)
 	int x, y;
 	int maxx, maxy, count;
 
-	maxx = WIN_W;
-	maxy = WIN_H;
+	maxx = WIN_W/2;
+	maxy = WIN_H/2;
 	xscale = xside / maxx;
 	yscale = yside / maxy;
 	y = 1;
@@ -40,7 +40,10 @@ void	fractal(t_frame *frm, float left, float top, float xside, float yside)
 				zx = tempx;
 				count = count + 1; 
             }
-			fill_img(frm, x, y, count);
+			if (count > 20)
+				fill_img(frm, x, y, 0xFFFFFFFF);
+		
+			printf("x: %d, y: %d, conut: %d\n", x, y, count);
 			x++;
 		}
 		y++;
