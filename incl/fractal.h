@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:41:08 by khou              #+#    #+#             */
-/*   Updated: 2019/02/26 00:39:06 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/26 10:45:49 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ typedef struct	s_fflag
 
 typedef struct	s_vct
 {
-	int		x;
-	int		y;
+	float		x;
+	float		y;
 	int		z;
 	int			c;
 }				t_vct;

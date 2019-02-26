@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 04:37:39 by khou              #+#    #+#             */
-/*   Updated: 2019/02/26 01:02:51 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/26 11:04:27 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	op_fractal(t_frame *frm, t_vct *point, int x, int y)
 	int color = 0;
 	if (count >= 5)
 	{
-		color = 0x00FFFFFF;
+		color = 0x00606060;
 		fill_img(frm, x, y, color);
 	}
 }
