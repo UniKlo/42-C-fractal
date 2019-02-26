@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 00:47:16 by khou              #+#    #+#             */
-/*   Updated: 2019/02/23 02:49:20 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/25 19:40:25 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,32 @@ void	error_arg(t_fflag *flag,int argc, char **argv)
 		i++;
 	}
 }
+
+void	frame_init(t_frame *frm)
+{
+//	frm->ai_z.x = 0;
+//	frm->ai_z.y = 0;
+	frm->center[0].x = 0;
+	frm->center[0].y = 0;
+	frm->center[0].z = 0;
+	frm->center[1].x = 0;
+	frm->center[1].y = 0;
+	frm->center[1].z = 0;
+//	frm->ang.x = 5;
+//	frm->ang.y = 5;
+//	frm->ang.z = 5;
+}
+
 int		main(int argc, char **argv)
 {
 	t_frame frm;
 	int		bpp;
 	int		size_line;
 	int		endian;
-	t_fflag	flag;
 //-- error management for argv ----
-	error_arg(&flag, argc, argv);
-	printf("Mian: j: %d, m: %d\n", flag.j, flag.m);
+	error_arg(&frm.flag, argc, argv);
+	frame_init(&frm);
+	printf("Mian: j: %d, m: %d\n", frm.flag.j, frm.flag.m);
 	frm.mlx = mlx_init();
 	frm.win = mlx_new_window(frm.mlx, WIN_W, WIN_H, "The VIEW");
 	frm.img = mlx_new_image(frm.mlx, WIN_W, WIN_H);

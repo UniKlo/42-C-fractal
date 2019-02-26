@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:41:08 by khou              #+#    #+#             */
-/*   Updated: 2019/02/23 01:42:16 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/26 00:39:06 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,30 @@
 ** ------------------------- Structure Definition ------------------------------
 */
 
+typedef struct	s_fflag
+{
+	bool	j;
+	bool	m;
+}				t_fflag;
+
+typedef struct	s_vct
+{
+	int		x;
+	int		y;
+	int		z;
+	int			c;
+}				t_vct;
+
 typedef struct	s_frame
 {
 	void		*mlx;
 	void		*win;
 	void		*img;
 	char		*data_img;
+	t_fflag		flag;
+	t_vct		**org;
+	t_vct		center[2];
 }				t_frame;
-
-typedef struct	s_fflag
-{
-	bool	j;
-	bool	m;
-}				t_fflag;
 
 /*
 ** -----------------------------------------------------------------------------
@@ -95,10 +106,11 @@ typedef struct	s_fflag
 ** -----------------------------------------------------------------------------
 */
 
-int     render(t_frame *frm, t_fflag *flag);
+int     render(t_frame *frm);
 int     deal_key(int key, t_frame *frm);
 int     red_close(t_frame *frm);
 void	mandelbrot(t_frame *frm);
+void	fractal(t_frame *frm);
 void    fill_img(t_frame *frm, int x, int y, int a);
 
 

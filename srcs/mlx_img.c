@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 23:48:13 by khou              #+#    #+#             */
-/*   Updated: 2019/02/23 01:49:41 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/26 01:03:53 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 
 void	fill_img(t_frame *frm, int x, int y, int color)
 {
-/*
-	if (a == 0)
+
+	if (color == 0)
 		return ;
 	if ((y * WIN_W + x) * 4 - 1 < 0 ||
 		(y * WIN_W + x) * 4 - 1 > WIN_H * WIN_W * 4)
-		return ;*/
+		return ;
+	printf("x: %d, y: %d color: %x\n", x, y, color);
 	int i = (y * WIN_W + x) * 4 - 1;
 	int alpha = (color >> 24) & 0xFF;
 	int red = (color >> 16) & 0xFF;
@@ -33,5 +34,5 @@ void	fill_img(t_frame *frm, int x, int y, int color)
 	frm->data_img[i++] = blue;
 	frm->data_img[i++] = green;
 	frm->data_img[i++] = red;
-	frm->data_img[i++] = alpha;
+	frm->data_img[i] = alpha;
 }

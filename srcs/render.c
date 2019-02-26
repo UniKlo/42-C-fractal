@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 16:37:12 by khou              #+#    #+#             */
-/*   Updated: 2019/02/23 02:55:38 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/26 00:32:08 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	instruction(t_frame *m)
 				"Exit: click reb button / key <ESC>");
 }
 
-void	clear_img(t_frame *frm)
+void	paint_bg(t_frame *frm)
 {
 	int		i = 0;
 	while (i < WIN_W * WIN_H * 4)
@@ -48,13 +48,16 @@ void	clear_img(t_frame *frm)
 }
 
 
-int		render(t_frame *frm, t_fflag *flag)
+int		render(t_frame *frm)
 {
-	clear_img(frm);
-	if (flag->j == 1)
-		;
-	else if (flag->m == 1)
+	paint_bg(frm);
+/*
+	if (frm->flag.j == 1)
+		printf("I m here for Julia\n");
+	else if (frm->flag.m == 1)
 		mandelbrot(frm);
+*/
+	fractal(frm);
 //	printf("Render: j: %d, m: %d\n", flag->j, flag->m);//keep changes value
 //	scale(frm);
 //	rotate(frm);
@@ -62,6 +65,6 @@ int		render(t_frame *frm, t_fflag *flag)
 //	recenter(frm);
 //	draw_img(frm);
 	mlx_put_image_to_window(frm->mlx, frm->win, frm->img, 0, 0);
-	instruction(frm);
+//	instruction(frm);
 	return (0);
 }
