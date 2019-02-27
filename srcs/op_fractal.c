@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 19:18:50 by khou              #+#    #+#             */
-/*   Updated: 2019/02/26 10:52:56 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/26 12:24:31 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	recenter(t_frame *frm)
 		{
 			frm->org[i][j].x += frm->center[0].x + frm->center[1].x;
 			frm->org[i][j].y += frm->center[0].y + frm->center[1].y;
-			frm->org[i][j].x = 0.01 * frm->org[i][j].x;
+			frm->org[i][j].x = 0.01 * frm->org[i][j].x * 108/192;
 			frm->org[i][j].y = 0.01 * frm->org[i][j].y;
 //			printf("x: %f, y: %f ", frm->org[i][j].x, frm->org[i][j].y);
 			j++;
