@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 16:37:12 by khou              #+#    #+#             */
-/*   Updated: 2019/02/26 00:32:08 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/28 01:02:22 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ void	instruction(t_frame *m)
 				"Exit: click reb button / key <ESC>");
 }
 
-void	paint_bg(t_frame *frm)
+//void	paint_bg(t_frame *frm)
+void	paint_bg(t_frame *frm, int id, int thread_size)
 {
 	int		i = 0;
-	while (i < WIN_W * WIN_H * 4)
+//	printf("I m in paint\n");
+	while (i < thread_size)
 	{
 		int color = 0x00FFFFFF;	
 		int alpha = (color >> 24) & 0xFF;
@@ -40,24 +42,63 @@ void	paint_bg(t_frame *frm)
 		int blue =  color & 0xFF;
 
 
-		frm->data_img[i++] = blue;
-		frm->data_img[i++] = green;
-		frm->data_img[i++] = red;
-		frm->data_img[i++] = alpha;
+		frm->data_img[id++] = blue;
+		frm->data_img[id++] = green;
+		frm->data_img[id++] = red;
+		frm->data_img[id++] = alpha;
+		i++;
+/*
+		data_img[i++] = blue;
+		data_img[i++] = green;
+		data_img[i++] = red;
+		data_img[i] = alpha;
+*/
 	}
 }
 
 
+void	*op_thread(void *arg)
+{
+	t_frame *frm;
+	int	thread_size;
+	int		id;
+	static int	i = 0;
+
+	frm = (t_frame *)arg;
+	if (i == NBR_THREAD)
+		i = 0;
+	thread_size = WIN_W * WIN_H * 4 / NBR_THREAD;
+	id = thread_size * i;
+	printf("op_thread: before i: %d,  id: %d\n", i, id);
+//	paint_bg(&frm->data_img[id], thread_size);
+	paint_bg(frm, id, thread_size);
+//	printf("after  i: %d,  id: %d\n", i, id);
+
+//	fractal(frm);
+	i++;
+
+//	printf("i: %d\n", i);
+	pthread_exit(0);
+}
+
 int		render(t_frame *frm)
 {
-	paint_bg(frm);
-/*
-	if (frm->flag.j == 1)
-		printf("I m here for Julia\n");
-	else if (frm->flag.m == 1)
-		mandelbrot(frm);
-*/
-	fractal(frm);
+	pthread_t	thread[NBR_THREAD];
+
+	int	i = 0;
+	while (i < NBR_THREAD)
+	{
+		pthread_create(&thread[i], NULL, op_thread, frm);
+		i++;
+	}
+	i = 0;
+	while (i < NBR_THREAD)
+	{
+		pthread_join(thread[i], NULL);
+		i++;
+	}
+
+//	mandelbrot(frm);
 //	printf("Render: j: %d, m: %d\n", flag->j, flag->m);//keep changes value
 //	scale(frm);
 //	rotate(frm);
@@ -65,6 +106,6 @@ int		render(t_frame *frm)
 //	recenter(frm);
 //	draw_img(frm);
 	mlx_put_image_to_window(frm->mlx, frm->win, frm->img, 0, 0);
-//	instruction(frm);
+	instruction(frm);
 	return (0);
 }

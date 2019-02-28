@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 18:41:08 by khou              #+#    #+#             */
-/*   Updated: 2019/02/26 11:12:16 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/28 00:43:23 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 
 # define WIN_W 1920
 # define WIN_H 1080
+# define NBR_THREAD 4
 
 /*
 ** Keyboard keys
@@ -112,6 +113,7 @@ int     deal_key(int key, t_frame *frm);
 int     red_close(t_frame *frm);
 void	mandelbrot(t_frame *frm);
 void	fractal(t_frame *frm);
+//void    fractal(t_frame *frm, float left, float top, float xside, float yside);
 void    fill_img(t_frame *frm, int x, int y, int a);
 
 

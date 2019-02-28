@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 15:57:34 by khou              #+#    #+#             */
-/*   Updated: 2019/02/26 15:57:36 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/28 01:01:15 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		main(int argc, char **argv)
 	frm.data_img = mlx_get_data_addr(frm.img, &bpp, &size_line, &endian);
 	if (!frm.mlx || !frm.win || !frm.img || !frm.data_img)
 		exit(0);
-	printf("endian: %d\n", endian);
+	printf("Main: endian: %d\n", endian);
 
 
 	mlx_hook(frm.win, 2, 0, deal_key, &frm);

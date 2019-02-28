@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/26 16:00:45 by khou              #+#    #+#             */
-/*   Updated: 2019/02/26 16:00:47 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/28 00:43:11 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void    mandelbrot(t_frame *frm)
 	}
 }
 
-
 /*
 void	fractal(t_frame *frm, float left, float top, float xside, float yside)
 {
@@ -96,10 +95,10 @@ void	fractal(t_frame *frm, float left, float top, float xside, float yside)
 
 void	mandelbrot(t_frame *frm)
 {
-	float	left = -1.75;
-	float	top = -0.25;
-	float	xside = 0.25;
-	float	yside = 0.45;
+	float	left = -3;
+	float	top = -2;
+	float	xside = 4;
+	float	yside = 4;
 	fractal(frm, left, top, xside, yside);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: khou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 19:18:50 by khou              #+#    #+#             */
-/*   Updated: 2019/02/26 12:24:31 by khou             ###   ########.fr       */
+/*   Updated: 2019/02/28 00:31:33 by khou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	recenter(t_frame *frm)
 		i++;
 	}
 }
-
+/*
 void	fractal(t_frame *frm)
 {
 	int		i = 0;
@@ -64,3 +64,4 @@ void	fractal(t_frame *frm)
 	else if (frm->flag.m == 1)
 		mandelbrot(frm);
 }
+*/
